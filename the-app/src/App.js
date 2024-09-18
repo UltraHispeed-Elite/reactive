@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <ScreenContext.Provider value={switchScreen}>
-        <Page />
+        <Page data={2}/>
       </ScreenContext.Provider>
     </div>
   );

@@ -2,12 +2,15 @@ import { useContext } from 'react';
 
 import { ScreenContext } from './App.js';
 
-export default function Page() {
+export default function Page({data}) {
     const screen = useContext(ScreenContext);
-    let val = 3;
+
+    function func() {
+        screen(data);
+    }
 
     return(
-        <div onClick={screen.bind(this, val)}>
+        <div onClick={func}>
             <h1>Hello</h1>
         </div>
     )
