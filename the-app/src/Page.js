@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 
-import { ThemeContext, ChangeContext } from './App.js';
+import { ScreenContext } from './App.js';
 
 export default function Page() {
-    const theme = useContext(ThemeContext);
-    const change = useContext(ChangeContext);
+    const screen = useContext(ScreenContext);
+    let val = 3;
 
     return(
-        <div onClick={change}>
-            <h1>Hello {theme}</h1>
+        <div onClick={screen.bind(this, val)}>
+            <h1>Hello</h1>
         </div>
     )
 }

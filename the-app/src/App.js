@@ -5,27 +5,22 @@ import Page from './Page.js';
 
 import { useState, createContext } from 'react';
 
-export const ThemeContext = createContext('light');
-export const ChangeContext = createContext('change');
+export const ScreenContext = createContext(0);
 
 function App() {
-  const [theme, changeTheme] = useState('light');
+  const [screenState, changeScreen] = useState(0);
 
-  function test() {
-    if(theme === 'light') {
-      changeTheme('dark');
-    }else {
-      changeTheme('light');
-    }
+  function switchScreen(val) {
+    changeScreen(val);
+    console.log(val);
+    console.log(screenState);
   }
 
   return (
     <div className="App">
-      <ThemeContext.Provider value={theme}>
-        <ChangeContext.Provider value={test}>
-          <Page />
-        </ChangeContext.Provider>
-      </ThemeContext.Provider>
+      <ScreenContext.Provider value={switchScreen}>
+        <Page />
+      </ScreenContext.Provider>
     </div>
   );
 }
